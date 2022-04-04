@@ -1,0 +1,9 @@
+com\datagrokr\simplejpa\model\School.class
+com\datagrokr\simplejpa\repository\SchoolRepository.class
+com\datagrokr\simplejpa\model\Student.class
+com\datagrokr\simplejpa\model\Teacher.class
+com\datagrokr\simplejpa\repository\StudentRepository.class
+com\datagrokr\simplejpa\model\Tutor.class
+com\datagrokr\simplejpa\repository\TeacherRepository.class
+com\datagrokr\simplejpa\App.class
+com\datagrokr\simplejpa\repository\TutorRepository.class
