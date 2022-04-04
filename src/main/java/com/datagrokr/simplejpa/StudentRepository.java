@@ -7,6 +7,7 @@ import javax.persistence.EntityManagerFactory;
 import javax.persistence.Persistence;
 import javax.persistence.Query;
 
+import com.datagrokr.simplejpa.model.School;
 import com.datagrokr.simplejpa.model.Student;
 
 public class StudentRepository {
@@ -29,9 +30,17 @@ public class StudentRepository {
         return entityManager.find(Student.class, id);
     }
 
-     public Student findStudentById(Long id){
+    public Student addSchool(Long id, School school){
+        entityManager.getTransaction().begin();
+        Student student = findStudentById(id);
+        student.setSchool(school);
+        entityManager.getTransaction().commit();
+        return student;
+    }
+
+    public Student findStudentById(Long id){
         Query query = entityManager.createNamedQuery("find student by id");
-        query.setParameter("id", 3L);
+        query.setParameter("id", id);
         return (Student)query.getSingleResult();
     }
 
