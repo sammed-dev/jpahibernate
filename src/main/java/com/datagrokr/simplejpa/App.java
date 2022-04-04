@@ -15,10 +15,18 @@ public class App
         // studentRepository.addStudent(student);
         // System.out.println(student.toString());
 
-        List<String> firstNames =   studentRepository.findFirstNames();
-        System.out.println(firstNames);
-        // student = studentRepository.findStudent(8L);
+        // List<String> firstNames =   studentRepository.findFirstNames();
+        // System.out.println(firstNames);
+        student = studentRepository.findStudent(3L);
         // System.out.println(student);
+
+
+        // student  = studentRepository.findStudentById(student.getId());
+        // System.out.println("Line no 23 :"+student.toString());
+
+        student = studentRepository.updateFirstNameById("viru", student.getId());
+        System.out.println("update firstName : "+ student.toString());
+
 
         // student.setFirstName("Ab");
         // studentRepository.updateStudent(student);
