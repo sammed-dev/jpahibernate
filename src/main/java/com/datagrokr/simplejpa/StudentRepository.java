@@ -66,6 +66,13 @@ public class StudentRepository {
         entityManager.getTransaction().commit();
     }
 
+    public void deleteById(Long id){
+        entityManager.getTransaction().begin();
+        Query query = entityManager.createQuery("DELETE FROM Student s where id ="+id);
+        query.executeUpdate();
+        entityManager.getTransaction().commit();
+    }
+
     public void close(){
         this.entityManager.close();
         this.emf.close();
