@@ -36,5 +36,10 @@ public class App
         List<String> firstNamesStartsWith = studentRepository.findFirstNamesStartsWith("s");
         System.out.println("firstNames starts with :"+firstNamesStartsWith.toString());
 
+        System.out.println("total no of students : "+studentRepository.totalNoOfStudents());
+
+        List<String> orderByFirstName = studentRepository.findSortingByFirstName();
+        System.out.println(orderByFirstName.toString());
+
     }
 }

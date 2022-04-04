@@ -46,6 +46,11 @@ public class StudentRepository {
         return query.getResultList();
     }
 
+    public List<String> findSortingByFirstName(){
+        Query query = entityManager.createQuery("SELECT s from Student s ORDER BY s.firstName desc");
+        return query.getResultList();
+    }
+
 
     public Student updateStudent(Student student){
         Student studentToUpdate = entityManager.find(Student.class, student.getId());
@@ -76,6 +81,12 @@ public class StudentRepository {
         Query query = entityManager.createQuery("DELETE FROM Student s where id ="+id);
         query.executeUpdate();
         entityManager.getTransaction().commit();
+    }
+
+
+    public Long totalNoOfStudents(){
+        Query query = entityManager.createQuery("SELECT count(s) FROM Student s");
+        return (Long) query.getSingleResult();
     }
 
     public void close(){
