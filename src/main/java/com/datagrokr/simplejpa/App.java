@@ -12,24 +12,29 @@ public class App
         student.setLastName("devilliars");
 
         StudentRepository studentRepository = new StudentRepository();
+
         // studentRepository.addStudent(student);
         // System.out.println(student.toString());
 
-        // List<String> firstNames =   studentRepository.findFirstNames();
-        // System.out.println(firstNames);
-        // student = studentRepository.findStudent(3L);
-        // System.out.println(student);
+        List<String> firstNames =   studentRepository.findFirstNames();
+        System.out.println(firstNames);
+        student = studentRepository.findStudent(3L);
+        System.out.println("student with id : "+ student.getId()+" is "+student);
 
 
-        // student  = studentRepository.findStudentById(student.getId());
-        // System.out.println("Line no 23 :"+student.toString());
+        student  = studentRepository.findStudentById(student.getId());
+        System.out.println("JPQL query to find by id :"+student.toString());
 
-        // student = studentRepository.updateFirstNameById("viru", student.getId());
+        // student = studentRepository.updateFirstNameById("virat", student.getId());
         // System.out.println("update firstName : "+ student.toString());
-        studentRepository.deleteById(4L);
+        // studentRepository.deleteById(4L);
 
         // student.setFirstName("Ab");
         // studentRepository.updateStudent(student);
         // studentRepository.deleteStudent(student);
+
+        List<String> firstNamesStartsWith = studentRepository.findFirstNamesStartsWith("s");
+        System.out.println("firstNames starts with :"+firstNamesStartsWith.toString());
+
     }
 }

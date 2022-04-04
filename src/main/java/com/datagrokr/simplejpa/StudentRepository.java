@@ -41,6 +41,11 @@ public class StudentRepository {
         return query.getResultList();
     }
 
+    public List<String> findFirstNamesStartsWith(String keyword){
+        Query query = entityManager.createQuery("SELECT s FROM Student s WHERE s.firstName LIKE '"+keyword+"%' ");
+        return query.getResultList();
+    }
+
 
     public Student updateStudent(Student student){
         Student studentToUpdate = entityManager.find(Student.class, student.getId());
