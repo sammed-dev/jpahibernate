@@ -9,8 +9,8 @@ import com.datagrokr.simplejpa.model.Student;
 
 public class UpdateStudent {
     public static void main(String[] args) {
-        EntityManagerFactory entityManagerFactory = Persistence.createEntityManagerFactory("student_pu");
-        EntityManager entityManager = entityManagerFactory.createEntityManager();
+        EntityManagerFactory emf = Persistence.createEntityManagerFactory("student_pu");
+        EntityManager entityManager = emf.createEntityManager();
         EntityTransaction entityTransaction = entityManager.getTransaction();
 
         entityTransaction.begin();
@@ -19,6 +19,6 @@ public class UpdateStudent {
         student.setLastName("King kohli");
         entityTransaction.commit();
         entityManager.close();
-        entityManagerFactory.close();
+        emf.close();
     }
 }
