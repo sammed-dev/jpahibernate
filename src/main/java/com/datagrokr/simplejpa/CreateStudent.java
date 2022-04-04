@@ -10,15 +10,14 @@ public class CreateStudent {
 
     public static void main(String[] args) {
 
-//        PersistenceProvider provider = new HibernatePersistenceProvider();
         EntityManagerFactory entityManagerFactory = Persistence.createEntityManagerFactory("student_pu");
         EntityManager entityManager = entityManagerFactory.createEntityManager();
         EntityTransaction entityTransaction = entityManager.getTransaction();
 
         entityTransaction.begin();
         Student student = new Student();
-        student.setFirstName("shreyank");
-        student.setLastName("jain");
+        student.setFirstName("rishabh");
+        student.setLastName("pant");
         entityManager.persist(student);
         entityTransaction.commit();
         entityManager.close();
