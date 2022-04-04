@@ -3,10 +3,6 @@
   <!-- ... -->
   <persistence-unit name="student_pu" transaction-type="RESOURCE_LOCAL">
     <provider>org.hibernate.jpa.HibernatePersistenceProvider</provider>
-<!--    <class>com.datagrokr.simplejpa.model.Student</class>
-    <class>com.com.datagrokr.simplejpa.model.School</class>
-    <class>com.com.datagrokr.simplejpa.model.Tutor</class>
-    <class>com.com.datagrokr.simplejpa.model.Teacher</class>-->
     <class> com.datagrokr.model.Student </class>
     
     <properties>

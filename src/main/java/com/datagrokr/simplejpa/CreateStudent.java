@@ -16,8 +16,8 @@ public class CreateStudent {
 
         entityTransaction.begin();
         Student student = new Student();
-        student.setFirstName("rishabh");
-        student.setLastName("pant");
+        student.setFirstName("sammed");
+        student.setLastName("sankonatti");
         entityManager.persist(student);
         entityTransaction.commit();
         entityManager.close();
