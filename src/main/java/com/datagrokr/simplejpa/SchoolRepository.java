@@ -3,9 +3,7 @@ package com.datagrokr.simplejpa;
 import javax.persistence.EntityManager;
 import javax.persistence.EntityManagerFactory;
 import javax.persistence.Persistence;
-
 import com.datagrokr.simplejpa.model.School;
-import com.mysql.cj.Query;
 
 public class SchoolRepository {
     private EntityManager entityManager;

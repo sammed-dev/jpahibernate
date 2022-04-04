@@ -1,7 +1,5 @@
 package com.datagrokr.simplejpa;
 
-import java.util.List;
-
 import com.datagrokr.simplejpa.model.School;
 import com.datagrokr.simplejpa.model.Student;
 
@@ -9,26 +7,27 @@ public class App
 {
     public static void main(String[] args) {
         Student student = new Student();
-        student.setFirstName("sammed");
-        student.setLastName("sankonatti");
+        student.setFirstName("shreyank");
+        student.setLastName("jain");
 
         StudentRepository studentRepository = new StudentRepository();
         SchoolRepository schoolRepository = new SchoolRepository();
 
 
-        studentRepository.addStudent(student);
+        student = studentRepository.addStudent(student);
         System.out.println(student.toString());
 
 
-        School school = new School("BMSCE", "Bangalore");
+        School school = new School("PESCE", "Bangalore");
         schoolRepository.addSchool(school);
-
-        student = studentRepository.findStudentById(student.getId());
 
         studentRepository.addSchool(student.getId(), school);
 
         student.setSchool(school);
         System.out.println("student-school : "+student.toString());
+
+
+         // student = studentRepository.findStudentById(student.getId());
 
         // List<String> firstNames =   studentRepository.findFirstNames();
         // System.out.println(firstNames);
