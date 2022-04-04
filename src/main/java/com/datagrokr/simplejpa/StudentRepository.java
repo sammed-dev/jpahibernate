@@ -56,6 +56,7 @@ public class StudentRepository {
         Query query = entityManager.createQuery("UPDATE Student s SET s.firstName = '"+ firstName +"' WHERE id="+id);
         query.executeUpdate();
         entityManager.getTransaction().commit();
+        entityManager.clear();
         return findStudentById(id);
     }
 
