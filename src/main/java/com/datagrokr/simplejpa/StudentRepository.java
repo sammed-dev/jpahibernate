@@ -1,8 +1,11 @@
 package com.datagrokr.simplejpa;
 
+import java.util.List;
+
 import javax.persistence.EntityManager;
 import javax.persistence.EntityManagerFactory;
 import javax.persistence.Persistence;
+import javax.persistence.Query;
 
 import com.datagrokr.simplejpa.model.Student;
 
@@ -24,6 +27,12 @@ public class StudentRepository {
 
     public Student findStudent(long id){
         return entityManager.find(Student.class, id);
+    }
+
+    public List<String> findFirstNames(){
+        entityManager.getTransaction().begin();
+        Query query = entityManager.createQuery("SELECT s.firstName from Student s");
+        return query.getResultList();
     }
 
     public Student updateStudent(Student student){
