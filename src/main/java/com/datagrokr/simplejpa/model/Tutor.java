@@ -1,36 +1,32 @@
 package com.datagrokr.simplejpa.model;
 
-import javax.persistence.*;
+import javax.persistence.Column;
+import javax.persistence.Entity;
+import javax.persistence.GeneratedValue;
+import javax.persistence.GenerationType;
+import javax.persistence.Id;
 
 @Entity
-@Table(name = "students")
-@NamedQuery(name = "find student by id", query = "SELECT s FROM Student s where s.id =:id")
-public class Student {
-
+public class Tutor {
+    
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long id;
-
+    
     @Column(name = "first_name", nullable = false, length = 150)
     private String firstName;
 
     @Column(name = "last_name", nullable = false, length = 150)
     private String lastName;
-
-
-    @OneToOne
-    private Tutor tutor;
-
-
+    
     public Long getId() {
         return id;
     }
-
-    public Student() {
+   
+    public Tutor() {
     }
 
-    public Student(Long id, String firstName, String lastName) {
-        this.id = id;
+    public Tutor(String firstName, String lastName) {
         this.firstName = firstName;
         this.lastName = lastName;
     }
@@ -38,38 +34,26 @@ public class Student {
     public void setId(Long id) {
         this.id = id;
     }
-
     public String getFirstName() {
         return firstName;
     }
-
     public void setFirstName(String firstName) {
         this.firstName = firstName;
     }
-
     public String getLastName() {
         return lastName;
     }
-
     public void setLastName(String lastName) {
         this.lastName = lastName;
     }
 
-    
-
-    public Tutor getTutor() {
-        return tutor;
-    }
-
-    public void setTutor(Tutor tutor) {
-        this.tutor = tutor;
-    }
-
     @Override
     public String toString() {
-        return "Student [firstName=" + firstName + ", id=" + id + ", lastName=" + lastName + ", tutor=" + tutor + "]";
+        return "Tutor [firstName=" + firstName + ", id=" + id + ", lastName=" + lastName + "]";
     }
 
+
+
+
     
-       
 }

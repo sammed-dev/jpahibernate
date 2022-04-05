@@ -1,9 +1,13 @@
 package com.datagrokr.simplejpa.model;
 
+import java.util.HashSet;
+import java.util.Set;
+
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
+import javax.persistence.OneToMany;
 
 @Entity
 public class School {
@@ -17,6 +21,9 @@ public class School {
 
     private String city;
 
+    @OneToMany(targetEntity = Student.class)
+    private Set<Student> students = new HashSet<>();
+
     public School() {
     }
 
@@ -26,6 +33,14 @@ public class School {
     }
 
     
+
+    public Set<Student> getStudents() {
+        return students;
+    }
+
+    public void setStudents(Set<Student> students) {
+        this.students = students;
+    }
 
     public Long getId() {
         return id;
@@ -53,6 +68,6 @@ public class School {
 
     @Override
     public String toString() {
-        return "School [city=" + city + ", id=" + id + ", name=" + name + "]";
+        return "School [city=" + city + ", id=" + id + ", name=" + name + ", students=" + students + "]";
     }
 }

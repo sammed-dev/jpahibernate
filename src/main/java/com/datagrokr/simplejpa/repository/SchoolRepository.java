@@ -1,9 +1,10 @@
-package com.datagrokr.simplejpa;
+package com.datagrokr.simplejpa.repository;
 
 import javax.persistence.EntityManager;
 import javax.persistence.EntityManagerFactory;
 import javax.persistence.Persistence;
 import com.datagrokr.simplejpa.model.School;
+import com.datagrokr.simplejpa.model.Student;
 
 public class SchoolRepository {
     private EntityManager entityManager;
@@ -36,6 +37,22 @@ public class SchoolRepository {
     public void deleteSchool(School school){
         entityManager.getTransaction().begin();
         entityManager.remove(school);
+        entityManager.getTransaction().commit();
+    }
+
+    public void addStudent(Long id,Student student){
+        entityManager.getTransaction().begin();
+        School school = findSchool(id);
+        if(school != null)
+            school.getStudents().add(student);
+        entityManager.getTransaction().commit();
+    }
+
+    public void removeStudent(Long id, Student student){
+        entityManager.getTransaction().begin();
+        School school =findSchool(id);
+        if(school != null)
+            school.getStudents().remove(student);
         entityManager.getTransaction().commit();
     }
 

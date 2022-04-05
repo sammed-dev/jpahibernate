@@ -1,4 +1,4 @@
-package com.datagrokr.simplejpa;
+package com.datagrokr.simplejpa.repository;
 
 import java.util.List;
 
@@ -7,8 +7,8 @@ import javax.persistence.EntityManagerFactory;
 import javax.persistence.Persistence;
 import javax.persistence.Query;
 
-import com.datagrokr.simplejpa.model.School;
 import com.datagrokr.simplejpa.model.Student;
+import com.datagrokr.simplejpa.model.Tutor;
 
 public class StudentRepository {
     
@@ -30,10 +30,10 @@ public class StudentRepository {
         return entityManager.find(Student.class, id);
     }
 
-    public Student addSchool(Long id, School school){
+    public Student addtutor(Long id, Tutor tutor){
         entityManager.getTransaction().begin();
         Student student = findStudentById(id);
-        student.setSchool(school);
+        student.setTutor(tutor);
         entityManager.getTransaction().commit();
         return student;
     }

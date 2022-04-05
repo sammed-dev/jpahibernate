@@ -5,6 +5,7 @@
     <provider>org.hibernate.jpa.HibernatePersistenceProvider</provider>
     <class> com.datagrokr.model.Student </class>
     <class> com.datagrokr.model.School </class>
+    <class> com.datagrokr.model.Tutor </class>
     
     <properties>
             <property name="javax.persistence.jdbc.url" value="jdbc:mysql://localhost:3306/jpahibernate" />
