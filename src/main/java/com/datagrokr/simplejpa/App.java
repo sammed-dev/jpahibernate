@@ -2,9 +2,11 @@ package com.datagrokr.simplejpa;
 
 import com.datagrokr.simplejpa.model.School;
 import com.datagrokr.simplejpa.model.Student;
+import com.datagrokr.simplejpa.model.Teacher;
 import com.datagrokr.simplejpa.model.Tutor;
 import com.datagrokr.simplejpa.repository.SchoolRepository;
 import com.datagrokr.simplejpa.repository.StudentRepository;
+import com.datagrokr.simplejpa.repository.TeacherRepository;
 import com.datagrokr.simplejpa.repository.TutorRepository;
 
 public class App 
@@ -15,17 +17,18 @@ public class App
         StudentRepository studentRepository = new StudentRepository();
         SchoolRepository schoolRepository = new SchoolRepository();
         TutorRepository tutorRepository = new TutorRepository();
+        TeacherRepository teacherRepository = new TeacherRepository();
 
         Student student = new Student();
-        student.setFirstName("deekshi");
-        student.setLastName("patil");
+        student.setFirstName("shweta");
+        student.setLastName("kote");
 
         student = studentRepository.addStudent(student);
 
-        School school = new School("Ramaiah", "Bangalore");
+        School school = new School("BMSIT", "Bangalore");
         school = schoolRepository.addSchool(school);
 
-        Tutor tutor = new Tutor("chandashree", "das");
+        Tutor tutor = new Tutor("chaitanya", "das");
         tutor = tutorRepository.addTutor(tutor);
 
         student.setTutor(tutor);
@@ -39,6 +42,18 @@ public class App
         System.out.println("one to many of school :"+school.getStudents());
         schoolRepository.removeStudent(school.getId(), student);
          // student = studentRepository.findStudentById(student.getId());
+
+        Teacher teacher = new Teacher("JS", "mastery");
+        teacher.setSchool(school);
+        teacherRepository.addTeacher(teacher);
+
+        Teacher teacher1 = new Teacher("sonny", "sangha");
+        teacher1.setSchool(school);
+        teacherRepository.addTeacher(teacher1);
+
+        
+
+       
 
         // List<String> firstNames =   studentRepository.findFirstNames();
         // System.out.println(firstNames);
