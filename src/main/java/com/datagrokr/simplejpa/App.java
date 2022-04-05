@@ -43,15 +43,17 @@ public class App
         schoolRepository.removeStudent(school.getId(), student);
          // student = studentRepository.findStudentById(student.getId());
 
-        Teacher teacher = new Teacher("JS", "mastery");
-        teacher.setSchool(school);
-        teacherRepository.addTeacher(teacher);
+        // Teacher teacher = new Teacher("JS", "mastery");
+        // teacher.setSchool(school);
+        // teacherRepository.addTeacher(teacher);
 
-        Teacher teacher1 = new Teacher("sonny", "sangha");
-        teacher1.setSchool(school);
-        teacherRepository.addTeacher(teacher1);
+        // Teacher teacher1 = new Teacher("sonny", "sangha");
+        // teacher1.setSchool(school);
+        // teacherRepository.addTeacher(teacher1);
 
-        
+        Teacher teacher = new Teacher("Mery", "Thomas");
+        teacher.addStudent(new Student());
+
 
        
 

@@ -1,5 +1,8 @@
 package com.datagrokr.simplejpa.model;
 
+import java.util.HashSet;
+import java.util.Set;
+
 import javax.persistence.*;
 
 @Entity
@@ -21,6 +24,17 @@ public class Student {
     @OneToOne
     private Tutor tutor;
 
+    @ManyToMany(mappedBy = "students")
+    private Set<Teacher> teachers = new HashSet<>();
+    
+
+    public Set<Teacher> getTeachers() {
+        return teachers;
+    }
+
+    public void setTeachers(Set<Teacher> teachers) {
+        this.teachers = teachers;
+    }
 
     public Long getId() {
         return id;
@@ -67,7 +81,8 @@ public class Student {
 
     @Override
     public String toString() {
-        return "Student [firstName=" + firstName + ", id=" + id + ", lastName=" + lastName + ", tutor=" + tutor + "]";
+        return "Student [firstName=" + firstName + ", id=" + id + ", lastName=" + lastName + ", teachers=" + teachers
+                + ", tutor=" + tutor + "]";
     }
 
     
