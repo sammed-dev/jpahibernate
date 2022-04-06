@@ -52,7 +52,10 @@ public class App
         // teacherRepository.addTeacher(teacher1);
 
         Teacher teacher = new Teacher("Mery", "Thomas");
-        teacher.addStudent(new Student());
+        teacher.addStudent(new Student("john","alice"));
+        teacher.addStudent(new Student("jonny", "miller"));
+
+        teacherRepository.addTeacher(teacher);
 
 
        
