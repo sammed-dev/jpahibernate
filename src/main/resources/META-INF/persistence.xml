@@ -20,7 +20,7 @@
 
             <!--this create is used only for the first time. later change it to update, instead every time it creates new record  -->
             <!--<property name="hibernate.hbm2ddl.auto" value="create" />-->  
-            <property name="hibernate.hbm2ddl.auto" value="update" />
+            <property name="hibernate.hbm2ddl.auto" value="drop-and-create" />
         </properties>
   </persistence-unit>
 </persistence>
