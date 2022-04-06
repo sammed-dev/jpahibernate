@@ -3,6 +3,7 @@
   <!-- ... -->
   <persistence-unit name="student_pu" transaction-type="RESOURCE_LOCAL">
     <provider>org.hibernate.jpa.HibernatePersistenceProvider</provider>
+    <class> com.datagrokr.model.Person </class> 
     <class> com.datagrokr.model.Student </class>
     <class> com.datagrokr.model.School </class>
     <class> com.datagrokr.model.Tutor </class>
@@ -19,7 +20,7 @@
 
             <!--this create is used only for the first time. later change it to update, instead every time it creates new record  -->
             <!--<property name="hibernate.hbm2ddl.auto" value="create" />-->  
-            <property name="hibernate.hbm2ddl.auto" value="create" />
+            <property name="hibernate.hbm2ddl.auto" value="update" />
         </properties>
   </persistence-unit>
 </persistence>

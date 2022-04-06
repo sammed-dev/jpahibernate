@@ -5,6 +5,7 @@ import java.util.Set;
 
 import javax.persistence.CascadeType;
 import javax.persistence.Column;
+import javax.persistence.DiscriminatorValue;
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
@@ -17,20 +18,9 @@ import javax.persistence.Table;
 import javax.persistence.UniqueConstraint;
 
 @Entity
-@Table(name = "teachers")
-public class Teacher {
+@DiscriminatorValue(value = "TE")
+public class Teacher extends Person {
     
-    @Id
-    @GeneratedValue(strategy = GenerationType.AUTO)
-    private Long id;
-
-    @Column(name = "first_name", nullable = false, length = 150)
-    private String first_name;
-
-    @Column(name = "last_name", nullable = false, length = 150)
-    private String lastName;
-
-
     @ManyToOne
     private School school;
 
@@ -51,7 +41,11 @@ public class Teacher {
     )
     private Set<Student> students = new HashSet<>();
 
-    
+
+    public Teacher(String firstName, String lastName) {
+        super(firstName, lastName);
+    }
+
     public Set<Student> getStudents() {
         return students;
     }
@@ -68,37 +62,6 @@ public class Teacher {
         this.school = school;
     }
 
-    public Teacher() {
-    }
-
-    public Teacher(String first_name, String lastName) {
-        this.first_name = first_name;
-        this.lastName = lastName;
-    }
-
-    public Long getId() {
-        return id;
-    }
-
-    public void setId(Long id) {
-        this.id = id;
-    }
-
-    public String getFirst_name() {
-        return first_name;
-    }
-
-    public void setFirst_name(String first_name) {
-        this.first_name = first_name;
-    }
-
-    public String getLastName() {
-        return lastName;
-    }
-
-    public void setLastName(String lastName) {
-        this.lastName = lastName;
-    }
 
     public void addStudent(Student student){
         boolean added = students.add(student);
@@ -114,9 +77,8 @@ public class Teacher {
 
     @Override
     public String toString() {
-        return "Teacher [first_name=" + first_name + ", id=" + id + ", lastName=" + lastName + ", school=" + school
-                + ", students=" + students + "]";
+        return "Teacher [school=" + school + ", students=" + students + "]";
     }
 
-    
+
 }

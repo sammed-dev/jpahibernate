@@ -19,9 +19,7 @@ public class App
         TutorRepository tutorRepository = new TutorRepository();
         TeacherRepository teacherRepository = new TeacherRepository();
 
-        Student student = new Student();
-        student.setFirstName("shweta");
-        student.setLastName("kote");
+        Student student = new Student("deeksha", "patil");
 
         student = studentRepository.addStudent(student);
 
@@ -51,9 +49,9 @@ public class App
         // teacher1.setSchool(school);
         // teacherRepository.addTeacher(teacher1);
 
-        Teacher teacher = new Teacher("Mery", "Thomas");
-        teacher.addStudent(new Student("john","alice"));
-        teacher.addStudent(new Student("jonny", "miller"));
+        Teacher teacher = new Teacher("Lakshmi", "narayan");
+        teacher.addStudent(new Student("sammed","sankonatti"));
+        teacher.addStudent(new Student("sanjana", "j"));
 
         teacherRepository.addTeacher(teacher);
 

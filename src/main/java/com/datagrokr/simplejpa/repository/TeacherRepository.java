@@ -29,7 +29,7 @@ public class TeacherRepository {
     public Teacher updateTeacher(Teacher teacher){
         Teacher teacherToUpdate = entityManager.find(Teacher.class, teacher.getId());
         entityManager.getTransaction().begin();
-        teacherToUpdate.setFirst_name(teacher.getFirst_name());
+        teacherToUpdate.setFirstName(teacher.getFirstName());
         teacherToUpdate.setLastName(teacher.getLastName());
         entityManager.getTransaction().commit();
         return teacherToUpdate;
