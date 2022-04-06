@@ -1,5 +1,7 @@
 package com.datagrokr.simplejpa;
 
+import java.util.List;
+
 import com.datagrokr.simplejpa.model.School;
 import com.datagrokr.simplejpa.model.Student;
 import com.datagrokr.simplejpa.model.Teacher;
@@ -82,6 +84,12 @@ public class App
 
         // List<String> orderByFirstName = studentRepository.findSortingByFirstName();
         // System.out.println(orderByFirstName.toString());
+
+
+
+        // Criteria builder :
+        List<Student> students = studentRepository.getStudentWithCriteriaBuilder();
+        System.out.println("with criteria"+students.toString());
 
     }
 }

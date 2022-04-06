@@ -6,6 +6,10 @@ import javax.persistence.EntityManager;
 import javax.persistence.EntityManagerFactory;
 import javax.persistence.Persistence;
 import javax.persistence.Query;
+import javax.persistence.TypedQuery;
+import javax.persistence.criteria.CriteriaBuilder;
+import javax.persistence.criteria.CriteriaQuery;
+import javax.persistence.criteria.Root;
 
 import com.datagrokr.simplejpa.model.Student;
 import com.datagrokr.simplejpa.model.Tutor;
@@ -57,6 +61,19 @@ public class StudentRepository {
 
     public List<String> findSortingByFirstName(){
         Query query = entityManager.createQuery("SELECT s from Student s ORDER BY s.firstName desc");
+        return query.getResultList();
+    }
+
+
+    public List<Student> getStudentWithCriteriaBuilder(){
+        entityManager.getTransaction().begin();
+        CriteriaBuilder cb = entityManager.getCriteriaBuilder();
+        CriteriaQuery<Student> cq = cb.createQuery(Student.class);
+
+        Root<Student> studentroot = cq.from(Student.class);
+        cq.multiselect(studentroot.get("firstName"));
+        CriteriaQuery<Student> select = cq.select(studentroot);
+        TypedQuery<Student> query = entityManager.createQuery(select);
         return query.getResultList();
     }
 
