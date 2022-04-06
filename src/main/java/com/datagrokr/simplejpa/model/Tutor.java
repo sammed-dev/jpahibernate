@@ -10,7 +10,7 @@ import javax.persistence.PrimaryKeyJoinColumn;
 
 @Entity
 // @DiscriminatorValue(value = "TR")
-@PrimaryKeyJoinColumn(referencedColumnName = "id")
+// @PrimaryKeyJoinColumn(referencedColumnName = "id")
 public class Tutor extends Person {
 
     public Tutor(String firstName, String lastName) {

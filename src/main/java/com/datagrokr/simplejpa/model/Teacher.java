@@ -20,7 +20,7 @@ import javax.persistence.UniqueConstraint;
 
 @Entity
 // @DiscriminatorValue(value = "TE")
-@PrimaryKeyJoinColumn(referencedColumnName = "id")
+// @PrimaryKeyJoinColumn(referencedColumnName = "id")
 public class Teacher extends Person {
     
     @ManyToOne

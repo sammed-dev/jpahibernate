@@ -7,7 +7,7 @@ import javax.persistence.*;
 
 @Entity
 // @DiscriminatorValue(value = "ST")
-@PrimaryKeyJoinColumn(referencedColumnName = "id")
+// @PrimaryKeyJoinColumn(referencedColumnName = "id")
 @NamedQuery(name = "find student by id", query = "SELECT s FROM Student s where s.id =:id")
 public class Student extends Person {
 
